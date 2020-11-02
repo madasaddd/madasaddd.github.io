@@ -4,26 +4,36 @@
     </head>
 
     <body>
+       
+           <style>
+               .css
+        .label {float: left; width: 120px; }
+        .infobox {width: 200px; }
+        .error { color: red; padding-left: 10px; }
+        .submit { margin-left: 125px; margin-top: 10px;}
+           </style>
+    
+
         <script>
             $(document).ready(function() {
-                $('.error').hide();
-                $('.submit').click(function(event){
+                $('.error').hide(); //menyembunyikan pesan error
+                $('.submit').click(function(event){  // event ketika tombol pada class css dengan nama submit di klik
                 var data=$('.infobox').val();
                 if(validate_date(data))
-                {
-                $('.error').hide();
-                }
+                { //membaca isi text box pada class css dengan nama infobox
+                $('.error').hide(); 
+                } //jika kondisi memenuhi maka label error akan disembunyikan
                 else
                 {
                 $('.error').show();
                 event.preventDefault();
-                }
+                } //jika kondisi tidak memenuhi maka label error akan dikeluarkan
                 });
                });
-               function validate_date(date)
+               function validate_date(date) //membatalkan event submi
                {
-                var pattern= new RegExp(/\b\d{4}[\/-]\b\d{1,2}[\/-]\d{1,2}/);
-                return pattern.test(date);
+                var pattern= new RegExp(/\b\d{4}[\/-]\b\d{1,2}[\/-]\d{1,2}/); //menyocokkan data 
+                return pattern.test(date);  //menguji kecocokan string dengan persyaratan, akan mengembalikan nilai true jika menemukan kecocokan dan fals jika tidak
                } 
             </script>
 

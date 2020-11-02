@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <script>
+            $(document).ready(function() {
+                $('.error').hide();
+                $('.submit').click(function(event){
+                var data=$('.infobox').val();
+                if(validate_date(data))
+                {
+                $('.error').hide();
+                }
+                else
+                {
+                $('.error').show();
+                event.preventDefault();
+                }
+                });
+               });
+               function validate_date(date)
+               {
+                var pattern= new RegExp(/\b\d{4}[\/-]\b\d{1,2}[\/-]\d{1,2}/);
+                return pattern.test(date);
+               } 
+            </script>
+
+        <form id="signup" method="post" action="">
+            <div><span class="label">Enter Date of Birth 
+            </span><input type="text" class="infobox" name="dob" />
+            <span class="error"> Invalid Date. Correct format is yyyy/mm/dd or yyyy-mm-dd
+           </span></div>
+           <input class="submit" type="submit" value="Submit">
+           </form>
+    </body>
+</html>
